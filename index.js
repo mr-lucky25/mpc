@@ -443,7 +443,7 @@ app.delete('/user', async (req, res) => {
 });
 
 // ---------------------------------------------------------------------------
-// Start Express Server on Port 6000
+// Start Express Server on Port
 // ---------------------------------------------------------------------------
 let PORT = process.env.PORT || 5001
 app.listen(PORT, () => {
