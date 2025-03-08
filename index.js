@@ -55,6 +55,10 @@ function generateRandomPolynomial(secret, degree, prime) {
   return coefficients;
 }
 
+app.use((req, res, next) => {
+  console.log(`${res.statusCode} - ${req.method} ${req.url}`);
+  next();
+});
 function evaluatePolynomial(coefficients, x, prime) {
   let result = BigInt(0);
   for (let i = coefficients.length - 1; i >= 0; i--) {
@@ -441,6 +445,7 @@ app.delete('/user', async (req, res) => {
 // ---------------------------------------------------------------------------
 // Start Express Server on Port 6000
 // ---------------------------------------------------------------------------
-app.listen(process.env.PORT || 6000, () => {
-  console.log("Express server running on port 6000");
+let PORT = process.env.PORT || 5001
+app.listen(PORT, () => {
+  console.log(`Express server running on port ${PORT}`);
 });
